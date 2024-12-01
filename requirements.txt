@@ -2,7 +2,9 @@ pandas==2.2.3
 openpyxl==3.1.5
 pyyaml==6.0.2
 torch==2.5.1
-llama-cpp-python==0.2.77
+pyfiglet==1.0.2
 
+# ONLY IF YOU ARE GOING TO USE 'dataset_completion_automatic.py'
+llama-cpp-python==0.2.77
 # IF GPU IS AVAILABLE, RUN THIS COMMAND
 # pip uninstall -y llama-cpp-python && CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python==0.2.77

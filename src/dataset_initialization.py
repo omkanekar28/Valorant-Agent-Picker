@@ -32,7 +32,7 @@ class DatasetInitializer:
 
     def save_dataset(self) -> None:
         """Saves the generated dataset to an Excel file in the specified directory."""
-        self.data.to_excel(os.path.join(self.save_dir, "dataset.xlsx"))
+        self.data.to_excel(os.path.join(self.save_dir, "dataset_incomplete.xlsx"))
 
 
 if __name__ == '__main__':

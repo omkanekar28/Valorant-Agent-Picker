@@ -1,5 +1,6 @@
 from typing import Dict, Any
 import yaml
+import pyfiglet
 import torch
 from llama_cpp import Llama
 
@@ -37,6 +38,9 @@ class GGUFModelHandler:
         text = output['choices'][0]['message']['content']
         return text
 
+def fancy_print(text):
+    ascii_art = pyfiglet.figlet_format(text)
+    print(ascii_art)
 
 def load_config(yaml_file_path: str) -> Dict[str, Any]:
     """Loads the configuration settings from a YAML file."""

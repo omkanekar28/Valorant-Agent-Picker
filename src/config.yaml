@@ -1,11 +1,11 @@
 dataset_initialization:
     dataset_store_dir: "/home/om/code/Valorant-Agent-Picker/data"
 
-dataset_completion:
+dataset_completion_automatic:
     dataset:
-        path: "/home/om/code/Valorant-Agent-Picker/data/dataset.xlsx"
+        path: "/home/om/code/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
     model:
-        path: "/home/om/code/Valorant-Agent-Picker/models/qwen2.5-14b-instruct-q5_k_m-00001-of-00003.gguf"
+        path: "/home/om/code/Valorant-Agent-Picker/models/qwen2.5-3b-instruct-q5_k_m.gguf"
         context_window_size: 2048
         max_tokens: 25
         system_prompt: null
@@ -13,3 +13,7 @@ dataset_completion:
     misc:
         max_number_of_tries: 3
         store_dir: "/home/om/code/Valorant-Agent-Picker/data"
+
+dataset_completion_manual:
+    dataset:
+        path: "/home/om/code/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
