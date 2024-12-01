@@ -5,8 +5,11 @@ dataset_completion:
     dataset:
         path: "/home/om/code/Valorant-Agent-Picker/data/dataset.xlsx"
     model:
-        path: "/home/om/code/Valorant-Agent-Picker/models/qwen2.5-3b-instruct-q5_k_m.gguf"
+        path: "/home/om/code/Valorant-Agent-Picker/models/qwen2.5-14b-instruct-q5_k_m-00001-of-00003.gguf"
         context_window_size: 2048
         max_tokens: 25
         system_prompt: null
         instruction_prompt: "Which Valorant agent best describes this skillset? Give one word answer only."
+    misc:
+        max_number_of_tries: 3
+        store_dir: "/home/om/code/Valorant-Agent-Picker/data"
