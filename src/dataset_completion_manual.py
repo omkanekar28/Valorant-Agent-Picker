@@ -16,8 +16,11 @@ class DatasetCompleterManual:
         self.config = load_config(CONFIG_FILEPATH)['dataset_completion_manual']
         self.dataset_path = self.config['dataset']['path']
         self.dataset = pd.read_excel(self.dataset_path)
-        self.header = ["Agent_Type", "Playstyle", "Difficulty", "Team_Dependent", "Ability_Preference", "Gun_Type"]
-        self.agents = ['Brimstone', 'Phoenix', 'Sage', 'Sova', 'Viper', 'Cypher', 'Reyna', 'Killjoy', 'Breach', 'Omen', 'Jett', 'Raze', 'Skye', 'Yoru', 'Astra', 'Kayo', 'Chamber', 'Neon', 'Fade', 'Harbor', 'Gekko', 'Deadlock', 'Iso', 'Clove', 'Vyse']
+        self.header = ["Agent_Type", "Playstyle", "Difficulty", "Ability_Preference", "Gun_Type"]
+        self.agents = ['Phoenix', 'Reyna', 'Jett', 'Raze', 'Yoru', 'Neon', 'Iso', 
+                    'Sova', 'Breach', 'Skye', 'Fade', 'Gekko', 'Deadlock', 'Clove', 
+                    'Brimstone', 'Viper', 'Omen', 'Astra', 'Harbor', 'Vyse', 
+                    'Sage', 'Cypher', 'Killjoy', 'Chamber']
         self.column_widths = [15, 15, 12, 18, 20, 10]
 
     def fill_rows(self) -> None:
@@ -25,7 +28,7 @@ class DatasetCompleterManual:
         self.dataset['Agent'] = self.dataset['Agent'].astype('object')
         for index, row in self.dataset.iterrows():
             try:
-                print(f"Processing row {index+1} out of {self.dataset.shape[0]}")
+                print(f"Processing row {index+1} out of {self.dataset.shape[0]}\n")
                 
                 # SKIP TO THE FIRST ROW WHICH HAS NOT BEEN FILLED YET
                 if not pd.isna(self.dataset.at[index, 'Agent']):
@@ -41,8 +44,7 @@ class DatasetCompleterManual:
                     str(row['Agent_Type']).ljust(self.column_widths[0]),
                     str(row['Playstyle']).ljust(self.column_widths[1]),
                     str(row['Difficulty']).ljust(self.column_widths[2]),
-                    str(row['Team_Dependent']).ljust(self.column_widths[3]),
-                    str(row['Ability_Preference']).ljust(self.column_widths[4]),
+                    str(row['Ability_Preference']).ljust(self.column_widths[3]),
                     str(row['Gun_Type']).ljust(self.column_widths[5]),
                 ]))
                 

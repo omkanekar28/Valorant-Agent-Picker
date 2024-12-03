@@ -15,8 +15,7 @@ class DatasetInitializer:
         self.columns = {
             "Agent_Type": ["Duelist", "Initiator", "Controller", "Sentinel"],
             "Playstyle": ["Balanced", "Aggressive", "Supportive", "Map-control", "Info-gathering"],
-            "Difficulty": ["Easy", "Medium", "Hard"],
-            "Team_Dependent": [True, False],
+            "Difficulty": ["Easy", "Hard"],
             "Ability_Preference": ["Flashes", "Smokes", "Healing", "Agility", "Information"],
             "Gun_Type": ["SMGs", "Shotguns", "Rifles", "Snipers", "Machine Guns"]
         }
