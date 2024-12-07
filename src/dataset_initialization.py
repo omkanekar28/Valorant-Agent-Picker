@@ -16,7 +16,7 @@ class DatasetInitializer:
             "Agent_Type": ["Duelist", "Initiator", "Controller", "Sentinel"],
             "Playstyle": ["Balanced", "Aggressive", "Supportive", "Map-control", "Info-gathering"],
             "Difficulty": ["Easy", "Hard"],
-            "Ability_Preference": ["Flashes", "Smokes", "Healing", "Agility", "Information"],
+            "Ability_Preference": ["Flashes/Stuns", "Smokes", "Healing", "Agility", "Information"],
             "Gun_Type": ["SMGs", "Shotguns", "Rifles", "Snipers", "Machine Guns"]
         }
         self.data = pd.DataFrame(columns=self.columns)
