@@ -39,10 +39,15 @@ class InferenceEngine:
                     print(f"Please enter a valid number between 1 and {len(X_COLUMNS[column])} only: ")
             self.input[column] = X_COLUMNS[column][choice]
 
+    def get_prediction(self) -> str:
+        """Runs inference on the users inputs and returns the most suitable agent."""
+        return self.classifier.run_inference(self.input)
+
 
 if __name__ == '__main__':
     fancy_print("Valorant Agent Picker")
     inference_engine = InferenceEngine()
     inference_engine.get_user_input()
-    print(inference_engine.input)
+    agent = inference_engine.get_prediction()
+    print(f"\n\nYour ideal Valorant agent is {agent}!\n\n")
     fancy_print("The End")

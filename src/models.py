@@ -48,7 +48,7 @@ class Classifier:
             self.model = pickle.load(file)
             print("Classifier loaded successfully")
 
-    def get_preprocessed_input(input_dict: dict) -> pd.DataFrame:
+    def get_preprocessed_input(self, input_dict: dict) -> pd.DataFrame:
         """
         Applies the preprocessing/encodings that were used on the dataset during 
         model training.
@@ -69,8 +69,9 @@ class Classifier:
                             example_data_preprocessed[column] = False
         return example_data_preprocessed
 
-    def run_inference(self, preprocessed_input: pd.DataFrame) -> str:
+    def run_inference(self, input_dict: dict) -> str:
         """ Predicts the Valorant Agent that is most suitable for the given input"""
+        preprocessed_input = self.get_preprocessed_input(input_dict)
         example_data_pred = self.model.predict(preprocessed_input)
         agent = AGENT_MAPPINGS[example_data_pred[0]]
         return agent
