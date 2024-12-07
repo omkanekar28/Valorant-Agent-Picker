@@ -18,9 +18,9 @@ class DatasetCompleterManual:
         self.dataset = pd.read_excel(self.dataset_path)
         self.header = ["Agent_Type", "Playstyle", "Difficulty", "Ability_Preference", "Gun_Type"]
         self.agents = ['Phoenix', 'Reyna', 'Jett', 'Raze', 'Yoru', 'Neon', 'Iso', 
-                    'Sova', 'Breach', 'Skye', 'Fade', 'Gekko', 'Deadlock', 'Clove', 
+                    'Sova', 'Breach', 'Skye', 'Fade', 'Gekko', 'Clove', 
                     'Brimstone', 'Viper', 'Omen', 'Astra', 'Harbor', 'Vyse', 
-                    'Sage', 'Cypher', 'Killjoy', 'Chamber']
+                    'Sage', 'Cypher', 'Killjoy', 'Chamber', 'Deadlock']
         self.column_widths = [15, 15, 12, 18, 20, 10]
 
     def fill_rows(self) -> None:
@@ -53,14 +53,14 @@ class DatasetCompleterManual:
                         predicted_agent_index = int(input("\nEnter your choice: ")) - 1
                         if predicted_agent_index in range (0, len(self.agents)):
                             break
-                        print(f"Please enter a number between 1 and {len(self.agents)+1} only: ")
+                        print(f"Please enter a number between 1 and {len(self.agents)} only: ")
                     except ValueError:
-                        print(f"Please enter a valid number between 1 and {len(self.agents)+1} only: ")
+                        print(f"Please enter a valid number between 1 and {len(self.agents)} only: ")
 
                 predicted_agent_name = self.agents[predicted_agent_index]
                 self.dataset.at[index, 'Agent'] = predicted_agent_name
                 self.dataset.to_excel(self.dataset_path, index=False)
-                print(f"\nAgent {predicted_agent_name} store successfully for row {index+1}\n")
+                print(f"\nAgent {predicted_agent_name} stored successfully for row {index+1}\n")
             except Exception as e:
                 print(f"\nSkipping row {index+1}: {str(e)}\n")
                 self.dataset.at[index, 'Agent'] = 'Not Found'
