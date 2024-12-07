@@ -45,7 +45,7 @@ class DatasetCompleterManual:
                     str(row['Playstyle']).ljust(self.column_widths[1]),
                     str(row['Difficulty']).ljust(self.column_widths[2]),
                     str(row['Ability_Preference']).ljust(self.column_widths[3]),
-                    str(row['Gun_Type']).ljust(self.column_widths[5]),
+                    str(row['Gun_Type']).ljust(self.column_widths[4]),
                 ]))
                 
                 while True:
