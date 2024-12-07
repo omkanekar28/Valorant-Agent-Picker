@@ -1,6 +1,7 @@
 import os
 import pandas as pd
-from utils import load_config, fancy_print
+from utils import load_yaml_config, fancy_print
+from globals import AGENTS, X_COLUMNS
 
 CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
 
@@ -13,14 +14,10 @@ class DatasetCompleterManual:
 
     def __init__(self) -> None:
         """Initialises the parameters needed for dataset completion."""
-        self.config = load_config(CONFIG_FILEPATH)['dataset_completion_manual']
+        self.config = load_yaml_config(CONFIG_FILEPATH)['dataset_completion_manual']
         self.dataset_path = self.config['dataset']['path']
         self.dataset = pd.read_excel(self.dataset_path)
-        self.header = ["Agent_Type", "Playstyle", "Difficulty", "Ability_Preference", "Gun_Type"]
-        self.agents = ['Phoenix', 'Reyna', 'Jett', 'Raze', 'Yoru', 'Neon', 'Iso', 
-                    'Sova', 'Breach', 'Skye', 'Fade', 'Gekko', 'Clove', 
-                    'Brimstone', 'Viper', 'Omen', 'Astra', 'Harbor', 'Vyse', 
-                    'Sage', 'Cypher', 'Killjoy', 'Chamber', 'Deadlock']
+        self.header = [column for column in X_COLUMNS.keys()]
         self.column_widths = [15, 15, 12, 18, 20, 10]
 
     def fill_rows(self) -> None:
@@ -35,7 +32,7 @@ class DatasetCompleterManual:
                     print(f"Skipping row {index+1} as it is already filled\n")
                     continue
                 
-                for count, agent in enumerate(self.agents):
+                for count, agent in enumerate(AGENTS):
                     print(f"{count+1}. {agent}")
 
                 print()
@@ -51,13 +48,13 @@ class DatasetCompleterManual:
                 while True:
                     try:
                         predicted_agent_index = int(input("\nEnter your choice: ")) - 1
-                        if predicted_agent_index in range (0, len(self.agents)):
+                        if predicted_agent_index in range (0, len(AGENTS)):
                             break
-                        print(f"Please enter a number between 1 and {len(self.agents)} only: ")
+                        print(f"Please enter a number between 1 and {len(AGENTS)} only: ")
                     except ValueError:
-                        print(f"Please enter a valid number between 1 and {len(self.agents)} only: ")
+                        print(f"Please enter a valid number between 1 and {len(AGENTS)} only: ")
 
-                predicted_agent_name = self.agents[predicted_agent_index]
+                predicted_agent_name = AGENTS[predicted_agent_index]
                 self.dataset.at[index, 'Agent'] = predicted_agent_name
                 self.dataset.to_excel(self.dataset_path, index=False)
                 print(f"\nAgent {predicted_agent_name} stored successfully for row {index+1}\n")
@@ -70,6 +67,7 @@ class DatasetCompleterManual:
         dataset_complete_filepath = os.path.join(os.path.dirname(self.dataset_path), "dataset_complete.xlsx")
         self.dataset.to_excel(dataset_complete_filepath, index=False)
         os.remove(self.dataset_path)
+
 
 if __name__ == '__main__':
     fancy_print("Manual Dataset Completion")

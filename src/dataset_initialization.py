@@ -1,7 +1,8 @@
 import os
 import itertools
 import pandas as pd
-from utils import load_config
+from globals import X_COLUMNS
+from utils import load_yaml_config
 
 CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
 
@@ -11,22 +12,15 @@ class DatasetInitializer:
 
     def __init__(self) -> None:
         """Initializes the dataset with configuration and column definitions."""
-        self.config = load_config(CONFIG_FILEPATH)["dataset_initialization"]
-        self.columns = {
-            "Agent_Type": ["Duelist", "Initiator", "Controller", "Sentinel"],
-            "Playstyle": ["Balanced", "Aggressive", "Supportive", "Map-control", "Info-gathering"],
-            "Difficulty": ["Easy", "Hard"],
-            "Ability_Preference": ["Flashes/Stuns", "Smokes", "Healing", "Agility", "Information"],
-            "Gun_Type": ["SMGs", "Shotguns", "Rifles", "Snipers", "Machine Guns"]
-        }
-        self.data = pd.DataFrame(columns=self.columns)
+        self.config = load_yaml_config(CONFIG_FILEPATH)["dataset_initialization"]
+        self.data = pd.DataFrame(columns=X_COLUMNS)
         self.save_dir = self.config["dataset_store_dir"]
 
     def generate_rows(self) -> None:
         """Generates all possible combinations of column values and creates a DataFrame."""
-        column_values_list = [column_value for column_value in self.columns.values()]
+        column_values_list = [column_value for column_value in X_COLUMNS.values()]
         rows = list(itertools.product(*column_values_list))    # GENERATE ALL POSSIBLE COMBINATIONS OF VALUES FOR EACH COLUMN USING 'itertools.product'
-        self.data = pd.DataFrame(rows, columns=self.columns.keys())
+        self.data = pd.DataFrame(rows, columns=X_COLUMNS.keys())
         self.data['Agent'] = None
 
     def save_dataset(self) -> None:

@@ -17,3 +17,6 @@ dataset_completion_automatic:
 dataset_completion_manual:
     dataset:
         path: "/home/om/code/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
+
+inference:
+    model_path: "/home/om/code/Valorant-Agent-Picker/models/RandomForestClassifier_ValorantAgentPicker_accuracy_93.pkl"

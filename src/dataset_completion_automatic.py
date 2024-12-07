@@ -1,6 +1,7 @@
 import os
 import pandas as pd
-from utils import GGUFModelHandler, load_config, fancy_print
+from models import GGUFModel
+from utils import load_yaml_config, fancy_print
 
 CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
 
@@ -9,8 +10,8 @@ class DatasetCompleterAutomatic:
     """Uses a base model to get and save predicted agent names on the incomplete dataset."""
     def __init__(self) -> None:
         """Initialises the parameters needed for dataset completion."""
-        self.config = load_config(CONFIG_FILEPATH)['dataset_completion_automatic']
-        self.model_handler = GGUFModelHandler(self.config['model'])
+        self.config = load_yaml_config(CONFIG_FILEPATH)['dataset_completion_automatic']
+        self.model_handler = GGUFModel(self.config['model'])
         self.dataset = pd.read_excel(self.config['dataset']['path'])
         self.store_dir = self.config['misc']['store_dir']
         self.agents = {
