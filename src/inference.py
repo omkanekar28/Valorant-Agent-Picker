@@ -45,9 +45,12 @@ class InferenceEngine:
 
 
 if __name__ == '__main__':
-    fancy_print("Valorant Agent Picker")
-    inference_engine = InferenceEngine()
-    inference_engine.get_user_input()
-    agent = inference_engine.get_prediction()
-    print(f"\n\nYour ideal Valorant agent is {agent}!\n\n")
-    fancy_print("The End")
+    try:
+        fancy_print("Valorant Agent Picker")
+        inference_engine = InferenceEngine()
+        inference_engine.get_user_input()
+        agent = inference_engine.get_prediction()
+        print(f"\n\nYour ideal Valorant agent is {agent}!\n\n")
+        fancy_print("The End")
+    except Exception as e:
+        print(f"An unexpected error occured: {str(e)}!")
