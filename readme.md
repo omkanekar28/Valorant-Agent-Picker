@@ -1,6 +1,9 @@
 # Valorant Agent Picker  
 A Machine Learning project that helps players pick a valorant agent based on their preferences.
 
+## Example
+![Image not found!](https://github.com/omkanekar28/Valorant-Agent-Picker/raw/main/documentation/inference_example.png "Screenshot of the inference script.")
+
 ## Features  
 - ⚙️ Simple  
 - 🪶 Lightweight  
@@ -33,6 +36,3 @@ cd src
 ```  
 python3 inference.py
 ```
-
-## Example
-![Image not found!](https://github.com/omkanekar28/Valorant-Agent-Picker/raw/main/documentation/inference_example.png "Screenshot of the inference script.")
