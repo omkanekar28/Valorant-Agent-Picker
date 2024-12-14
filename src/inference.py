@@ -1,6 +1,18 @@
+import time
+import logging
 from models import Classifier
 from globals import X_COLUMNS
 from utils import load_yaml_config, fancy_print
+
+# LOGGING
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='model_logs.log',
+    filemode='a'
+)
+logger = logging.getLogger(__name__)
+
 
 CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
 
@@ -21,11 +33,15 @@ class InferenceEngine:
             'Gun_Type': None
         }
         self.config = load_yaml_config(CONFIG_FILEPATH)['inference']
+        logger.info(f"Config file {CONFIG_FILEPATH} loaded successfully")
         self.classifier = Classifier(self.config['model_path'])
+        logger.info(f"Classifier {self.config['model_path']} loaded successfully")
+        print("Classifier loaded successfully")
 
     def get_user_input(self) -> None:
         """Stores the users inputs to be used for model inference."""
         for column in self.input:
+            logger.info(f"Storing {column} value...")
             print()
             while True:
                 try:
@@ -41,16 +57,19 @@ class InferenceEngine:
 
     def get_prediction(self) -> str:
         """Runs inference on the users inputs and returns the most suitable agent."""
+        logger.info("Performing inference..")
         return self.classifier.run_inference(self.input)
 
 
 if __name__ == '__main__':
     try:
+        start_time = time.time()
         fancy_print("Valorant Agent Picker")
         inference_engine = InferenceEngine()
         inference_engine.get_user_input()
         agent = inference_engine.get_prediction()
         print(f"\n\nYour ideal Valorant agent is {agent}!\n\n")
+        logger.info(f"Input was processed in {time.time() - start_time} seconds")
         fancy_print("The End")
     except Exception as e:
         print(f"An unexpected error occured: {str(e)}!")
