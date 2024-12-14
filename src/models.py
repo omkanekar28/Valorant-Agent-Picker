@@ -2,7 +2,7 @@ import pandas as pd
 import torch
 from llama_cpp import Llama
 import pickle
-from globals import PREPROCESSED_X_COLUMNS, DIFFICULTY_MAPPINGS, AGENT_MAPPINGS
+from globals import PREPROCESSED_X_COLUMNS, DIFFICULTY_MAPPINGS, AGENTS
 
 
 class GGUFModel:
@@ -72,6 +72,6 @@ class Classifier:
         """ Predicts the Valorant Agent that is most suitable for the given input"""
         preprocessed_input = self.get_preprocessed_input(input_dict)
         example_data_pred = self.model.predict(preprocessed_input)
-        agent = AGENT_MAPPINGS[example_data_pred[0]]
+        agent = sorted(AGENTS)[example_data_pred[0]]
         return agent
 

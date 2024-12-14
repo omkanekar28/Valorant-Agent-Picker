@@ -34,10 +34,3 @@ DIFFICULTY_MAPPINGS = {
     'Easy': 0.0,
     'Hard': 1.0
 }
-
-AGENT_MAPPINGS = [
-    'Astra', 'Breach', 'Brimstone', 'Chamber', 'Clove', 'Cypher',
-    'Deadlock', 'Fade', 'Gekko', 'Harbor', 'Iso', 'Jett', 'Killjoy',
-    'Neon', 'Omen', 'Phoenix', 'Raze', 'Reyna', 'Sage', 'Skye',
-    'Sova', 'Viper', 'Vyse', 'Yoru'
-]
