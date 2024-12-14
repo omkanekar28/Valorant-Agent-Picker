@@ -14,7 +14,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
+CONFIG_FILEPATH = "config.yaml"
 
 
 class InferenceEngine:

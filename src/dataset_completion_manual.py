@@ -3,7 +3,7 @@ import pandas as pd
 from utils import load_yaml_config, fancy_print
 from globals import AGENTS, X_COLUMNS
 
-CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
+CONFIG_FILEPATH = "config.yaml"
 
 
 class DatasetCompleterManual:

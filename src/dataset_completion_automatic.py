@@ -3,7 +3,7 @@ import pandas as pd
 from models import GGUFModel
 from utils import load_yaml_config, fancy_print
 
-CONFIG_FILEPATH = "/home/om/code/Valorant-Agent-Picker/src/config.yaml"
+CONFIG_FILEPATH = "config.yaml"
 
 
 class DatasetCompleterAutomatic:
