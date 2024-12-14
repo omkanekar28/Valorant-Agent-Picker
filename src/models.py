@@ -46,7 +46,6 @@ class Classifier:
         """Loads the classifier."""
         with open(model_path, 'rb') as file:
             self.model = pickle.load(file)
-            print("Classifier loaded successfully")
 
     def get_preprocessed_input(self, input_dict: dict) -> pd.DataFrame:
         """
