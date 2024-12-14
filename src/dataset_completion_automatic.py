@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 from models import GGUFModel
+from globals import AGENTS
 from utils import load_yaml_config, fancy_print
 
 CONFIG_FILEPATH = "config.yaml"
@@ -14,9 +15,7 @@ class DatasetCompleterAutomatic:
         self.model_handler = GGUFModel(self.config['model'])
         self.dataset = pd.read_excel(self.config['dataset']['path'])
         self.store_dir = self.config['misc']['store_dir']
-        self.agents = {
-            'Brimstone', 'Phoenix', 'Sage', 'Sova', 'Viper', 'Cypher', 'Reyna', 'Killjoy', 'Breach', 'Omen', 'Jett', 'Raze', 'Skye', 'Yoru', 'Astra', 'Kayo', 'Chamber', 'Neon', 'Fade', 'Harbor', 'Gekko', 'Deadlock', 'Iso', 'Clove', 'Vyse'
-        }
+        self.agents = AGENTS
 
     def fill_rows(self) -> None:
         """Uses the specified model to predict the agent name, validates the output and 

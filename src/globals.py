@@ -1,5 +1,5 @@
 AGENTS = ['Phoenix', 'Reyna', 'Jett', 'Raze', 'Yoru', 'Neon', 'Iso', 'Sova', 
-          'Breach', 'Skye', 'Fade', 'Gekko', 'Clove', 'Brimstone', 'Viper', 
+          'Breach', 'Skye', r'KAY/O', 'Fade', 'Gekko', 'Clove', 'Brimstone', 'Viper', 
           'Omen', 'Astra', 'Harbor', 'Vyse', 'Sage', 'Cypher', 'Killjoy', 
           'Chamber', 'Deadlock']
 
