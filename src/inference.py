@@ -5,14 +5,13 @@ from globals import X_COLUMNS
 from utils import load_yaml_config, fancy_print
 
 # LOGGING
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='model_logs.log',
-    filemode='a'
-)
-logger = logging.getLogger(__name__)
-
+model_logger = logging.getLogger('model_logger')
+model_logger.setLevel(logging.DEBUG)
+file_handler = logging.FileHandler('model_logs.log')
+file_handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+model_logger.addHandler(file_handler)
 
 CONFIG_FILEPATH = "config.yaml"
 
@@ -33,15 +32,15 @@ class InferenceEngine:
             'Gun_Type': None
         }
         self.config = load_yaml_config(CONFIG_FILEPATH)['inference']
-        logger.info(f"Config file {CONFIG_FILEPATH} loaded successfully")
+        model_logger.info(f"Config file {CONFIG_FILEPATH} loaded successfully")
         self.classifier = Classifier(self.config['model_path'])
-        logger.info(f"Classifier {self.config['model_path']} loaded successfully")
+        model_logger.info(f"Classifier {self.config['model_path']} loaded successfully")
         print("Classifier loaded successfully")
 
     def get_user_input(self) -> None:
         """Stores the users inputs to be used for model inference."""
         for column in self.input:
-            logger.info(f"Storing {column} value...")
+            model_logger.info(f"Storing {column} value...")
             print()
             while True:
                 try:
@@ -57,7 +56,6 @@ class InferenceEngine:
 
     def get_prediction(self) -> str:
         """Runs inference on the users inputs and returns the most suitable agent."""
-        logger.info("Performing inference..")
         return self.classifier.run_inference(self.input)
 
 
@@ -67,9 +65,10 @@ if __name__ == '__main__':
         fancy_print("Valorant Agent Picker")
         inference_engine = InferenceEngine()
         inference_engine.get_user_input()
+        model_logger.info("Performing inference..")
         agent = inference_engine.get_prediction()
         print(f"\n\nYour ideal Valorant agent is {agent}!\n\n")
-        logger.info(f"Input was processed in {time.time() - start_time} seconds")
+        model_logger.info(f"Input was processed in {time.time() - start_time} seconds")
         fancy_print("The End")
     except Exception as e:
         print(f"An unexpected error occured: {str(e)}!")
