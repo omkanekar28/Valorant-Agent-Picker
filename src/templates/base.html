@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}{% endblock %}Valorant Agent Picker</title>
+</head>
+<body>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+        <a href="/"><img id="home-button" src="{{ url_for('static', filename='home.png') }}" title="Back to Home" alt="Back to Home"></a>
+    </div>
+</body>
+</html>

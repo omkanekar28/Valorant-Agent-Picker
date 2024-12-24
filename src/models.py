@@ -70,6 +70,7 @@ class Classifier:
 
     def run_inference(self, input_dict: dict) -> str:
         """ Predicts the Valorant Agent that is most suitable for the given input"""
+        print(input_dict)
         preprocessed_input = self.get_preprocessed_input(input_dict)
         example_data_pred = self.model.predict(preprocessed_input)
         agent = sorted(AGENTS)[example_data_pred[0]]

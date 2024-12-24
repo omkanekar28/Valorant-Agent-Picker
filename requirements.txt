@@ -4,7 +4,7 @@ pyyaml==6.0.2
 torch==2.5.1
 pyfiglet==1.0.2
 pickle==0.0.11
-scikit-learn==1.5.2
+scikit-learn==1.5.0
 flask==3.1.0
 
 # ONLY IF YOU ARE GOING TO USE 'dataset_completion_automatic.py'

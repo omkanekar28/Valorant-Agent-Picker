@@ -1,10 +1,10 @@
 import logging
-from flask import Flask, jsonify, request, Response
+from flask import Flask, jsonify, request, Response, render_template
 from inference import InferenceEngine
 from typing import Union
 
 # LOADING THE CLASSIFIER
-inference_engine = InferenceEngine()
+INFERENCE_ENGINE = InferenceEngine()
 
 # LOGGER
 app_logger = logging.getLogger('app_logger')
@@ -25,7 +25,7 @@ def hello_world() -> str:
     Returns the homepage.
     """
     app_logger.info("Homepage accessed")
-    return "<h1>Homepage</h1><hr>"
+    return render_template("index.html")
 
 @app.route("/find_your_agent", methods=['GET', 'POST'])
 def find_your_agent() -> Union[str, Response]:
@@ -40,7 +40,6 @@ def find_your_agent() -> Union[str, Response]:
     """
     if request.method == 'GET':
         try:
-            app_logger.info("GET request to /find_your_agent")
             # TODO: HAVE A FORM TO SEND USER INPUT
             # EXPECTED JSON OUTPUT FROM THE FORM
             # {
@@ -50,7 +49,8 @@ def find_your_agent() -> Union[str, Response]:
             #     "Ability_Preference": "Agility",
             #     "Gun_Type": "Snipers"
             # }
-            return "<h1>Find your Agent</h1><hr>"
+            app_logger.info("GET request to /find_your_agent")
+            return render_template("find_agent.html")
         except Exception as e:
             app_logger.info(f"Error handling GET request to /find_your_agent: {str(e)}")
             return jsonify({"error": str(e)}), 500
@@ -58,11 +58,19 @@ def find_your_agent() -> Union[str, Response]:
     if request.method == 'POST':
         try:
             app_logger.info("POST request to /find_your_agent")
-            # TODO: INSTEAD OF request.json, USE request.form TO HANDLE USER INPUT FORM DATA
-            data = request.json
-            inference_engine.input = data
-            agent = inference_engine.get_prediction()
+            data = request.form.to_dict()
+            try:
+                data['Difficulty']
+            except KeyError:
+                data['Difficulty'] = 'Easy'
+            else:
+                data['Difficulty'] = 'Hard'
+            INFERENCE_ENGINE.input = data
+            agent = INFERENCE_ENGINE.get_prediction()
             return jsonify({"agent": agent})
         except Exception as e:
             app_logger.info(f"Error handling POST request to /find_your_agent: {str(e)}")
             return jsonify({"error": str(e)}), 500
+        
+if __name__ == '__main__':
+    app.run(debug=True)
