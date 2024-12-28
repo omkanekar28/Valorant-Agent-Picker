@@ -1,21 +1,30 @@
 #page_title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 35px;
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    background-color: black;
+    color: white;
+    margin: 0px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
 }
 body {
     height: 100vh;
     margin: 0;
-    font-size: 18px;
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 5px;
 }
 #home-button {
     height: 50px;
     width: 50px;
-    margin: 20px;
+    margin: 5px;
 }
 .label-and-input {
     display: block;
