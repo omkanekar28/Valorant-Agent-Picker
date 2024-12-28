@@ -1,22 +1,22 @@
 dataset_initialization:
-    dataset_store_dir: "/home/om/code/Valorant-Agent-Picker/data"
+    dataset_store_dir: "/path/to/Valorant-Agent-Picker/data"
 
 dataset_completion_automatic:
     dataset:
-        path: "/home/om/code/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
+        path: "/path/to/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
     model:
-        path: "/home/om/code/Valorant-Agent-Picker/models/qwen2.5-3b-instruct-q5_k_m.gguf"
+        path: "/path/to/Valorant-Agent-Picker/models/qwen2.5-3b-instruct-q5_k_m.gguf"
         context_window_size: 2048
         max_tokens: 25
         system_prompt: null
         instruction_prompt: "Which Valorant agent best describes this skillset? Give one word answer only."
     misc:
         max_number_of_tries: 3
-        store_dir: "/home/om/code/Valorant-Agent-Picker/data"
+        store_dir: "/path/to/Valorant-Agent-Picker/data"
 
 dataset_completion_manual:
     dataset:
-        path: "/home/om/code/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
+        path: "/path/to/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
 
 inference:
-    model_path: "/home/om/code/Valorant-Agent-Picker/models/RandomForestClassifier_ValorantAgentPicker_accuracy_91.pkl"
+    model_path: "/path/to/Valorant-Agent-Picker/models/RandomForestClassifier_ValorantAgentPicker_accuracy_91.pkl"
