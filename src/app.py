@@ -40,15 +40,6 @@ def find_your_agent() -> Union[str, Response]:
     """
     if request.method == 'GET':
         try:
-            # TODO: HAVE A FORM TO SEND USER INPUT
-            # EXPECTED JSON OUTPUT FROM THE FORM
-            # {
-            #     "Agent_Type": "Initiator",
-            #     "Playstyle": "Supportive",
-            #     "Difficulty": "Easy",
-            #     "Ability_Preference": "Agility",
-            #     "Gun_Type": "Snipers"
-            # }
             app_logger.info("GET request to /find_your_agent")
             return render_template("find_agent.html")
         except Exception as e:
@@ -67,7 +58,7 @@ def find_your_agent() -> Union[str, Response]:
                 data['Difficulty'] = 'Hard'
             INFERENCE_ENGINE.input = data
             agent = INFERENCE_ENGINE.get_prediction()
-            return jsonify({"agent": agent})
+            return render_template("display_results.html", agent=agent)
         except Exception as e:
             app_logger.info(f"Error handling POST request to /find_your_agent: {str(e)}")
             return jsonify({"error": str(e)}), 500

@@ -2,92 +2,93 @@
 
 {% block title %}Find Your Agent | {% endblock %}
 
+{% block page_header %}Find Your Agent{% endblock %}
+
 {% block content %}
-<h1>Find Your Agent</h1>
 <form action="/find_your_agent" method="POST">
     <div class="label-and-input">
         <label>Agent Type:</label>
-        <input type="radio" name="Agent_Type" id="duelist" value="duelist" required>
-        <label class="form-item-labels" for="duelist">
-            <img class="form-icons" src="{{ url_for('static', filename='duelist.png') }}" title="Duelist" alt="Duelist">
+        <input type="radio" name="Agent_Type" id="Duelist" value="Duelist" required>
+        <label class="form-item-labels" for="Duelist">
+            <img class="form-icons" src="{{ url_for('static', filename='Duelist.png') }}" title="Duelist" alt="Duelist">
         </label>
-        <input type="radio" name="Agent_Type" id="initiator" value="initiator">
-        <label class="form-item-labels" for="initiator">
-            <img class="form-icons" src="{{ url_for('static', filename='initiator.png') }}" title="Initiator" alt="Initiator">
+        <input type="radio" name="Agent_Type" id="Initiator" value="Initiator">
+        <label class="form-item-labels" for="Initiator">
+            <img class="form-icons" src="{{ url_for('static', filename='Initiator.png') }}" title="Initiator" alt="Initiator">
         </label>
-        <input type="radio" name="Agent_Type" id="controller" value="controller">
-        <label class="form-item-labels" for="controller">
-            <img class="form-icons" src="{{ url_for('static', filename='controller.png') }}" title="Controller" alt="Controller">
+        <input type="radio" name="Agent_Type" id="Controller" value="Controller">
+        <label class="form-item-labels" for="Controller">
+            <img class="form-icons" src="{{ url_for('static', filename='Controller.png') }}" title="Controller" alt="Controller">
         </label>
-        <input type="radio" name="Agent_Type" id="sentinel" value="sentinel">
-        <label class="form-item-labels" for="sentinel">
-            <img class="form-icons" src="{{ url_for('static', filename='sentinel.png') }}" title="Sentinel" alt="Sentinel">
+        <input type="radio" name="Agent_Type" id="Sentinel" value="Sentinel">
+        <label class="form-item-labels" for="Sentinel">
+            <img class="form-icons" src="{{ url_for('static', filename='Sentinel.png') }}" title="Sentinel" alt="Sentinel">
         </label>    
     </div>
 
     <div class="label-and-input">
         <label>Ability Preference:</label>
-        <input type="radio" name="Ability_Preference" id="flashes-stuns" value="flashes-stuns" required>
-        <label class="form-item-labels" for="flashes-stuns">
-            <img class="form-icons" src="{{ url_for('static', filename='flashes-stuns.png') }}" title="Flashes/Stuns" alt="Flashes/Stuns">
+        <input type="radio" name="Ability_Preference" id="Flashes/Stuns" value="Flashes/Stuns" required>
+        <label class="form-item-labels" for="Flashes/Stuns">
+            <img class="form-icons" src="{{ url_for('static', filename='FlashesStuns.png') }}" title="Flashes/Stuns" alt="Flashes/Stuns">
         </label>
-        <input type="radio" name="Ability_Preference" id="smokes" value="smokes">
-        <label class="form-item-labels" for="smokes">
-            <img class="form-icons" src="{{ url_for('static', filename='smokes.png') }}" title="Smokes" alt="Smokes">
+        <input type="radio" name="Ability_Preference" id="Smokes" value="Smokes">
+        <label class="form-item-labels" for="Smokes">
+            <img class="form-icons" src="{{ url_for('static', filename='Smokes.png') }}" title="Smokes" alt="Smokes">
         </label>
-        <input type="radio" name="Ability_Preference" id="healing" value="healing">
-        <label class="form-item-labels" for="healing">
-            <img class="form-icons" src="{{ url_for('static', filename='healing.png') }}" title="Healing" alt="Healing">
+        <input type="radio" name="Ability_Preference" id="Healing" value="Healing">
+        <label class="form-item-labels" for="Healing">
+            <img class="form-icons" src="{{ url_for('static', filename='Healing.png') }}" title="Healing" alt="Healing">
         </label>
-        <input type="radio" name="Ability_Preference" id="agility" value="agility">
-        <label class="form-item-labels" for="agility">
-            <img class="form-icons" src="{{ url_for('static', filename='agility.png') }}" title="Agility" alt="Agility">
+        <input type="radio" name="Ability_Preference" id="Agility" value="Agility">
+        <label class="form-item-labels" for="Agility">
+            <img class="form-icons" src="{{ url_for('static', filename='Agility.png') }}" title="Agility" alt="Agility">
         </label>
-        <input type="radio" name="Ability_Preference" id="information" value="information">
-        <label class="form-item-labels" for="information">
-            <img class="form-icons" src="{{ url_for('static', filename='information.png') }}" title="Information" alt="Information">
+        <input type="radio" name="Ability_Preference" id="Information" value="Information">
+        <label class="form-item-labels" for="Information">
+            <img class="form-icons" src="{{ url_for('static', filename='Information.png') }}" title="Information" alt="Information">
         </label>
     </div>
 
     <div class="label-and-input">
         <label>Preferred Gun Type:</label>
-        <input type="radio" name="Gun_Type" id="smgs" value="smgs" required>
-        <label class="form-item-labels" for="smgs">
-            <img class="form-icons" src="{{ url_for('static', filename='smgs.avif') }}" title="SMGs" alt="SMGs">
+        <input type="radio" name="Gun_Type" id="SMGs" value="SMGs" required>
+        <label class="form-item-labels" for="SMGs">
+            <img class="form-icons" src="{{ url_for('static', filename='SMGs.avif') }}" title="SMGs" alt="SMGs">
         </label>
-        <input type="radio" name="Gun_Type" id="shotguns" value="shotguns">
-        <label class="form-item-labels" for="shotguns">
-            <img class="form-icons" src="{{ url_for('static', filename='shotguns.avif') }}" title="Shotguns" alt="Shotguns">
+        <input type="radio" name="Gun_Type" id="Shotguns" value="Shotguns">
+        <label class="form-item-labels" for="Shotguns">
+            <img class="form-icons" src="{{ url_for('static', filename='Shotguns.jpg') }}" title="Shotguns" alt="Shotguns">
         </label>
-        <input type="radio" name="Gun_Type" id="rifles" value="rifles">
-        <label class="form-item-labels" for="rifles">
-            <img class="form-icons" src="{{ url_for('static', filename='rifles.avif') }}" title="Rifles" alt="Rifles">
+        <input type="radio" name="Gun_Type" id="Rifles" value="Rifles">
+        <label class="form-item-labels" for="Rifles">
+            <img class="form-icons" src="{{ url_for('static', filename='Rifles.avif') }}" title="Rifles" alt="Rifles">
         </label>
-        <input type="radio" name="Gun_Type" id="snipers" value="snipers">
-        <label class="form-item-labels" for="snipers">
-            <img class="form-icons" src="{{ url_for('static', filename='snipers.jpg') }}" title="Snipers" alt="Snipers">
+        <input type="radio" name="Gun_Type" id="Snipers" value="Snipers">
+        <label class="form-item-labels" for="Snipers">
+            <img class="form-icons" src="{{ url_for('static', filename='Snipers.jpg') }}" title="Snipers" alt="Snipers">
         </label>
-        <input type="radio" name="Gun_Type" id="machine-guns" value="machine-guns">
-        <label class="form-item-labels" for="machine-guns">
-            <img class="form-icons" src="{{ url_for('static', filename='machine-guns.png') }}" title="Machine Guns" alt="Machine Guns">
+        <input type="radio" name="Gun_Type" id="Machine Guns" value="Machine Guns">
+        <label class="form-item-labels" for="Machine Guns">
+            <img class="form-icons" src="{{ url_for('static', filename='Machine Guns.png') }}" title="Machine Guns" alt="Machine Guns">
         </label>
     </div>
 
     <div class="label-and-input">
         <label for="Playstyle">Playstyle:</label>
         <select name="Playstyle" id="Playstyle" required>
-            <option value="balanced">Balanced</option>
-            <option value="aggressive">Aggressive</option>
-            <option value="supportive">Supportive</option>
+            <option value="Balanced">Balanced</option>
+            <option value="Aggressive">Aggressive</option>
+            <option value="Supportive">Supportive</option>
             <option value="Map-control">Map-control</option>
-            <option value="info-gathering">Info-gathering</option>
+            <option value="Info-gathering">Info-gathering</option>
         </select>
     </div>
     <div class="label-and-input">
         <label for="Difficulty">Difficult to play?:</label>
         <input type="checkbox" name="Difficulty" id="Difficulty">
     </div>
-    <button type="submit">Find Your Agent</button>
+    <button type="submit">Submit</button>
     <button type="reset">Reset</button>
 </form>
 {% endblock %}

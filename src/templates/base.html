@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="container">
+        <h1 id="page_title">{% block page_header %}{% endblock %}</h1>
         {% block content %}
         {% endblock %}
-        <a href="/"><img id="home-button" src="{{ url_for('static', filename='home.png') }}" title="Back to Home" alt="Back to Home"></a>
+        <a href="/"><img id="home-button" src="{{ url_for('static', filename='Home.png') }}" title="Back to Home" alt="Back to Home"></a>
     </div>
 </body>
 </html>
