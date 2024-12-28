@@ -1,8 +1,6 @@
 # Valorant Agent Picker  
 A Machine Learning project that helps players pick a valorant agent based on their preferences.
 
-# Screenshots
-
 ## Get Your Agent page
 ![Image not found!](https://github.com/omkanekar28/Valorant-Agent-Picker/raw/main/documentation/form_page.png "Screenshot of the Get Your Agent page.")
 
@@ -20,7 +18,7 @@ A Machine Learning project that helps players pick a valorant agent based on the
 git clone https://github.com/omkanekar28/Valorant-Agent-Picker.git
 ```
 
-1. Move in the directory:
+2. Move in the src (source code) directory:
 ```  
 cd Valorant-Agent-Picker
 ```
@@ -30,14 +28,9 @@ cd Valorant-Agent-Picker
 pip install -r requirements.txt
 ```
 
-4. Move in the src (source code) directory:
-```  
-cd src
-```
+4. Update the 'model_path' in config.yaml.
 
-5. Update the paths in config.yaml.
-
-6. Run the project with:
+5. Run the project with:
 ```  
-python3 inference.py
+python3 wsgi.py
 ```
