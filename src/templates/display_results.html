@@ -5,5 +5,8 @@
 {% block page_header %}Result{% endblock %}
 
 {% block content %}
-Your Valorant agent is {{ agent }}!
+<div id="result">
+    <h2>Your Valorant agent is {{ agent }}!</h2>
+    <img src="{{ agent_image_path }}" alt=" {{ agent }}" height="600" width="600">
+</div>
 {% endblock %}

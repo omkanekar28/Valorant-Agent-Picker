@@ -1,7 +1,8 @@
 import logging
-from flask import Flask, jsonify, request, Response, render_template
-from inference import InferenceEngine
 from typing import Union
+from globals import AGENTS
+from inference import InferenceEngine
+from flask import Flask, jsonify, request, Response, render_template, url_for
 
 # LOADING THE CLASSIFIER
 INFERENCE_ENGINE = InferenceEngine()
@@ -58,9 +59,14 @@ def find_your_agent() -> Union[str, Response]:
                 data['Difficulty'] = 'Hard'
             INFERENCE_ENGINE.input = data
             agent = INFERENCE_ENGINE.get_prediction()
-            return render_template("display_results.html", agent=agent)
+            if agent not in AGENTS:
+                raise Exception(f"Invalid agent predicted: {agent}!")
+            if agent == 'KAY/O':
+                agent = 'KAY_O'
+            agent_image_path = url_for('static', filename=f'/icons/Agents/{agent}.webp')
+            return render_template("display_results.html", agent=agent, agent_image_path=agent_image_path)
         except Exception as e:
-            app_logger.info(f"Error handling POST request to /find_your_agent: {str(e)}")
+            app_logger.error(f"Error handling POST request to /find_your_agent: {str(e)}")
             return jsonify({"error": str(e)}), 500
         
 if __name__ == '__main__':

@@ -8,12 +8,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">    <title>{% block title %}{% endblock %}Valorant Agent Picker</title>
 </head>
-<body>
-    <h1 id="page_title">{% block page_header %}{% endblock %}</h1>
+<body style="background-image: url('{{ url_for('static', filename='Images/valorant_background.jpg') }}');
+             background-size: cover;
+             background-position: center;
+             background-attachment: fixed;
+             margin: 0;
+             height: 100vh;">
+    <div class="navbar">
+        <a href="/"><img id="home-button" src="{{ url_for('static', filename='icons/Misc/home.png') }}" title="Back to Home" alt="Back to Home"></a>
+        <h1 id="page_title">{% block page_header %}{% endblock %}</h1>
+    </div>
     <div class="container">
         {% block content %}
         {% endblock %}
-        <a href="/"><img id="home-button" src="{{ url_for('static', filename='icons/Misc/Home.png') }}" title="Back to Home" alt="Back to Home"></a>
     </div>
 </body>
 </html>

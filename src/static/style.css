@@ -1,12 +1,38 @@
-#page_title {
-    font-family: "Montserrat", serif;
-    font-optical-sizing: auto;
+.navbar {
     background-color: black;
     color: white;
     margin: 0px;
-    padding: 5px;
     display: flex;
-    justify-content: center;
+    position: relative;
+}
+#home-button {
+    height: 70px;
+    width: 70px;
+    margin: 5px 0px;
+    transition: 0.3s;
+}
+#home-button:hover {
+    height: 70px;
+    width: 70px;
+    margin: 5px 0px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 6px white;
+    box-shadow: -2px -2px 6px white;
+    box-shadow: 2px -2px 6px white;
+    box-shadow: -2px 2px 6px white;
+}
+#page_title {
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    text-align: center;
+    position: absolute; /* Position the title absolutely */
+    left: 50%; /* Move it to the center horizontally */
+    transform: translateX(-50%); /* Center it visually */
+    text-shadow: 
+        2px 2px 4px red,
+        -2px -2px 4px red,
+        2px -2px 4px red,
+        -2px 2px 4px red;
 }
 body {
     height: 100vh;
@@ -21,14 +47,16 @@ body {
     align-items: center;
     margin: 5px;
 }
-#home-button {
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+form, .content-section {
+    background-color: white;
+    padding: 10px;
+    margin: 5px 0px;
+    opacity: 0.8;
+    max-width: 800px;    
 }
 .label-and-input {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .form-item-labels {
     margin-right: 1vw;
@@ -37,3 +65,37 @@ body {
     height: 50px;
     width: 50px;
 }
+button {
+    padding: 5px 10px;
+    border: solid 1px lime;
+    background-color: black;
+    color: lime;
+    transition: 0.3s;
+}
+button:hover {
+    padding: 5px 10px;
+    border: solid 1px white;
+    background-color: black;
+    color: white;
+}
+#result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 0.8;
+      transform: translateY(0);
+    }
+  }
+
