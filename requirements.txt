@@ -3,11 +3,13 @@ openpyxl==3.1.5
 pyyaml==6.0.2
 torch==2.5.1
 pyfiglet==1.0.2
-pickle==0.0.11
+pickle5==0.0.11
 scikit-learn==1.5.0
 flask==3.1.0
+llama-cpp-python==0.3.5
 
-# ONLY IF YOU ARE GOING TO USE 'dataset_completion_automatic.py'
-# llama-cpp-python==0.2.77
-# IF GPU IS AVAILABLE, RUN THIS COMMAND
-# pip uninstall -y llama-cpp-python && CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python==0.2.77
+# IF GPU IS AVAILABLE, RUN THESE COMMANDS
+# !sudo apt install gcc-11
+# !sudo apt install g++-11
+# !pip install pandas openpyxl transformers[torch] --quiet
+# !CMAKE_ARGS="-DGGML_CUDA=on -DLLAVA_BUILD=off" FORCE_CMAKE=1 pip install  llama-cpp-python --no-cache-dir
