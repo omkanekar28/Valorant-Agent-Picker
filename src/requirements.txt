@@ -7,6 +7,7 @@ pickle5==0.0.11
 scikit-learn==1.5.0
 flask==3.1.0
 llama-cpp-python==0.3.5
+gunicorn
 
 # IF GPU IS AVAILABLE, RUN THESE COMMANDS
 # !sudo apt install gcc-11

@@ -19,4 +19,4 @@ dataset_completion_manual:
         path: "/path/to/Valorant-Agent-Picker/data/dataset_incomplete.xlsx"
 
 inference:
-    model_path: "/path/to/Valorant-Agent-Picker/models/RandomForestClassifier_ValorantAgentPicker_accuracy_89.pkl"
+    model_path: "models/RandomForestClassifier_ValorantAgentPicker_accuracy_89.pkl"
