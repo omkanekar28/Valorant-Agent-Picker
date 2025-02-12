@@ -1,8 +1,6 @@
 # Valorant Agent Picker  
 A Machine Learning project that helps players pick a valorant agent based on their preferences.
 
-🌐 **Deployed Project**: [https://valorant-agent-picker.onrender.com](https://valorant-agent-picker.onrender.com)
-
 ## Get Your Agent page
 ![Image not found!](https://github.com/omkanekar28/Valorant-Agent-Picker/raw/main/documentation/form_page.png "Screenshot of the Get Your Agent page.")
 
