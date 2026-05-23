@@ -1,7 +1,7 @@
 # Valorant Agent Picker  
 A Machine Learning project that helps players pick a valorant agent based on their preferences.
 
-🚀 **[Live Demo](http://52.66.199.171:5000/)**
+🚀 **[Live Demo](http://52.66.199.171:5000/)** <span style="color:red">(Currently Down)</span>
 
 ## Get Your Agent page
 ![Image not found!](https://github.com/omkanekar28/Valorant-Agent-Picker/raw/main/documentation/form_page.png "Screenshot of the Get Your Agent page.")
