@@ -22,7 +22,7 @@ git clone https://github.com/omkanekar28/Valorant-Agent-Picker.git
 
 2. Move in the src (source code) directory:
 ```  
-cd Valorant-Agent-Picker
+cd Valorant-Agent-Picker/src
 ```
 
 3. Install dependencies:
