@@ -1,8 +1,8 @@
 import pandas as pd
-import torch
 # from llama_cpp import Llama   # ENABLE ONLY IF USING GGUF MODELS FOR DATASET PREPARATION
 import pickle
 from globals import PREPROCESSED_X_COLUMNS, DIFFICULTY_MAPPINGS, AGENTS
+from utils import is_nvidia_gpu_available
 
 
 class GGUFModel:
@@ -10,7 +10,7 @@ class GGUFModel:
 
     def __init__(self, parameters: dict) -> None:
         """Initializes the model and its relevant parameters."""
-        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.device = "cuda" if is_nvidia_gpu_available() else "cpu"
         self.system_prompt = parameters['system_prompt']
         self.instruction_prompt = parameters['instruction_prompt']
         self.model = Llama(
